@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Baloo 2", cursive;
+  background-color: #fff8e7;
+  color: #374151;
+}
+
+/* ===== Header ===== */
+header { background-color: var(--bege); }
+header {
+  background-color: #fff8e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+}
+
+.logo {
+  font-size: 40px;
+  line-height: 0.4;
+  color: #355e57;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+.logo-mundos {
+  color: #355e57;
+}
+
+.logo-sonoros {
+  color: #7c9a97;
+}
+
+nav a {
+  color: #355e57;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+nav a:hover {
+  color: #0ea5e9;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--azul);
+  position: relative;
+  padding-top: 180px;
+  padding-bottom: 0;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+/* container geral dentro do hero */
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto; /* espaço entre texto e imagens */
+  width: 85%;
+  max-width: 1100px;
+}
+
+/* imagens das crianças */
+.hero-img {
+  display: flex;
+  justify-content: center; /* centraliza as crianças no eixo horizontal */
+  align-items: flex-end;   /* alinha pela base */
+  gap: 0px;                /* diminui mais o espaço entre elas */
+  position: relative;
+  top: 30px;               /* ajusta a altura */
+}
+
+.hero-img img {
+  width: 220px;  /* mantém o tamanho */
+  height: auto;
+  margin: 0;     /* garante que não tenha espaçamento extra */
+}
+
+/* texto à direita */
+.hero-text h1 {
+  font-size: 90px !important;
+  font-weight: 900;
+  color: #355E57;
+  text-align: left;
+  line-height: 0.9;
+  letter-spacing: 1px;
+  position: relative;
+  top: -50px;
+}
+
+
+.onda-top{
+  position: absolute;
+  top: -80px;          /* cola no topo do hero */
+  left: 0;
+  width: 100%;
+  height: 220px;   /* ajuste fino da altura da curva */
+  display: block;
+  transform: scaleX(-1); /* 👉 direita → esquerda */
+  z-index: 1;
+  pointer-events: none;
+}
+.onda-top path{
+  fill: var(--bege); /* 🔹 a onda em bege recorta o topo do azul */
+}
+
+.hero-text, .hero-img{ position: relative; z-index: 2; }
+
+
+.hero-text h1 {
+  font-size: 3rem;         /* tamanho grande */
+  font-weight: 900;        /* bem grosso */
+  color: #264843;
+        /* verde escuro igual ao menu */
+  text-align: right;       /* 🔹 alinha o texto à direita */
+  line-height: 0.9;        /* aproxima as duas linhas */
+  letter-spacing: 1px;     /* leve espaçamento horizontal */
+  margin-right: 40px;      /* 🔹 desloca um pouco pra dentro da área azul */
+}
+
+
+
+.hero-img img {
+  max-width: 250px;
+  height: auto;
+}
+
+/* ===== Livros Section ===== */
+.livros {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.livros h2 {
+  margin-bottom: 2rem;
+  color: #374151;
+  font-size: 48px; /* aumenta o tamanho */
+  font-weight: 900;
+  text-align: left; /* alinha à esquerda */
+  margin-left: 120px; /* move um pouco pra dentro da página */
+}
+
+.livros-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.livro {
+  background-color: transparent;
+  width: 180px;
+  text-align: center;
+}
+
+.capa {
+  background-color: #b0e4f1;
+  width: 100%;
+  height: 180px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.livro p {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background-color: #f6e58d;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #d1c05f;
+}
+
+button:hover {
+  background-color: #ffed99;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #789596;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+:root{
+  --bege: #fff8e7;
+  --azul: #7EDDD1;
+}
+
+footer {
+  background-color: #789596;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center; /* centraliza na horizontal */
+  align-items: center;
+  gap: 8px; /* espaço entre os ícones */
+}
+
+.social-links a img {
+  width: 50px;  /* 🔹 tamanho menor */
+  height: 50px;
+  margin: 0 6px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a img:hover {
+  transform: scale(1.2); /* efeito sutil ao passar o mouse */
+}
