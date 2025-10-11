@@ -480,3 +480,87 @@ footer {
     max-width: 240px;
   }
 }
+
+.video-box { position: relative; width: 100%; max-width: 1000px; margin: 0 auto;
+  aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,.15); }
+.video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.player-title {
+  font-size: 34px;
+  font-weight: 900;
+  color: #264843;
+  margin: 20px 0;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: 'baloo 2', cursive;
+}
+
+
+.btn-ouvir {
+  display: inline-block;
+  background-color: #f6e58d;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 800;
+  color: #374151;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #d1c05f;
+  font-family: "Baloo 2", cursive;
+  text-decoration: none; /* tira o sublinhado */
+  transition: transform 0.1s ease;
+}
+
+.btn-ouvir:hover {
+  background-color: #ffed99;
+  transform: scale(1.05);
+}
+
+/* --- Layout base: footer sempre no rodapé --- */
+html, body { height: 100%; }
+body {
+  min-height: 100dvh;           /* cobre a viewport em mobile também */
+  display: flex;
+  flex-direction: column;
+}
+
+/* o main cresce para ocupar o espaço; o footer desce */
+.player-wrapper {
+  flex: 1;                      /* ocupa o espaço entre header e footer */
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px 32px;      /* respiro (bottom dá espaço antes do footer) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.player-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #264843;
+  margin: 8px 0 18px;
+}
+
+/* caixa do vídeo responsiva (16:9) */
+.video-box {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  background: #0001;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+.video-box iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* Footer colado no fim da página */
+footer { margin-top: 0; }       /* se você tinha margin-top grande, remova */

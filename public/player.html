@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mundos Sonoros – Player</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <!-- Header só com o logo no topo direito -->
+  <header class="header-right">
+    <a class="logo" href="index.html" title="Voltar">
+      <span class="logo-mundos">MUNDOS</span><br />
+      <span class="logo-sonoros">SONOROS</span>
+    </a>
+  </header>
+
+  <!-- Player central -->
+  <main class="player-wrapper">
+    <h1 id="titulo" class="player-title">Carregando…</h1>
+    <div class="video-box">
+      <iframe id="player" 
+              src="" 
+              title="YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+      </iframe>
+    </div>
+  </main>
+
+  <!-- Footer com redes (igual ao index) -->
+  <footer>
+    <div class="social-links">
+      <a href="https://www.youtube.com/playlist?list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX" target="_blank">
+        <img src="imagens/youtube - Editado.png" alt="YouTube" />
+      </a>
+      <a href="https://www.instagram.com/mundo_ssonoros?igsh=MjQzZDN4ODBvNG9t" target="_blank">
+        <img src="imagens/instagram - Editado.png" alt="Instagram" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Lê os parâmetros ?title=...&v=...
+    const params = new URLSearchParams(location.search);
+    const title = params.get('title') || 'Ouça agora';
+    const v = params.get('v');
+
+    // Atualiza o título e o vídeo
+    document.getElementById('titulo').textContent = title;
+    if (v) {
+      const src = 'https://www.youtube.com/embed/' + encodeURIComponent(v);
+      document.getElementById('player').src = src;
+    } else {
+      document.getElementById('player').src = '';
+      document.getElementById('titulo').textContent = 'Vídeo não encontrado';
+    }
+  </script>
+</body>
+</html>
