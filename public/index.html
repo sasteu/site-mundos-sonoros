@@ -39,49 +39,54 @@
     </section>
 
     <section class="livros">
-  <h2>OUÇA AGORA</h2>
-  <div class="livros-grid">
-    <div class="livro">
-      <img
-        src="imagens/Reforma da natureza - capitulo 1.png"
-        alt="Capa do audio livro Reforma da natureza capitulo 1"
-        class="capa"
-      />
-      <p>Reforma da natureza capitulo 1</p>
-      <a class="btn-ouvir"
-          href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%201&v=2S9QgPtjyAI&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX">
-        OUVIR
-      </a>
-    </div>
+      <h2>OUÇA AGORA</h2>
+      <div class="livros-grid">
+        <div class="livro">
+          <img
+            src="imagens/Reforma da natureza - capitulo 1.png"
+            alt="Capa do audio livro Reforma da natureza capitulo 1"
+            class="capa"
+          />
+          <p>Reforma da natureza capitulo 1</p>
+          <a
+            class="btn-ouvir"
+            href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%201&v=2S9QgPtjyAI&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX"
+          >
+            OUVIR
+          </a>
+        </div>
 
-    <div class="livro">
-      <img
-        src="imagens/Reforma da natureza - capitulo 2.png"
-        alt="Capa do audio livro Reforma da natureza capitulo 2"
-        class="capa"
-      />
-      <p>Reforma da natureza capitulo 2</p>
-      <a class="btn-ouvir"
-         href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%202&v=lPirDihCzB8&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX">
-        OUVIR
-      </a>
-    </div>
+        <div class="livro">
+          <img
+            src="imagens/Reforma da natureza - capitulo 2.png"
+            alt="Capa do audio livro Reforma da natureza capitulo 2"
+            class="capa"
+          />
+          <p>Reforma da natureza capitulo 2</p>
+          <a
+            class="btn-ouvir"
+            href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%202&v=lPirDihCzB8&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX"
+          >
+            OUVIR
+          </a>
+        </div>
 
-    <div class="livro">
-      <img
-        src="imagens/Reforma da natureza - capitulo 3.png"
-        alt="Capa do audio livro Reforma da natureza capitulo 3"
-        class="capa"
-      />
-      <p>Reforma da natureza capitulo 3</p>
-      <a class="btn-ouvir"
-         href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%203&v=yMTu9f0mqvo&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX">
-        OUVIR
-      </a>
-    </div>
-  </div>
-</section>
-
+        <div class="livro">
+          <img
+            src="imagens/Reforma da natureza - capitulo 3.png"
+            alt="Capa do audio livro Reforma da natureza capitulo 3"
+            class="capa"
+          />
+          <p>Reforma da natureza capitulo 3</p>
+          <a
+            class="btn-ouvir"
+            href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%203&v=yMTu9f0mqvo&list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX"
+          >
+            OUVIR
+          </a>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <div class="social-links">
@@ -102,16 +107,15 @@
   </body>
 </html>
 
-
 <script>
   const params = new URLSearchParams(location.search);
-  const title = params.get('title') || 'Ouça agora';
-  const v = params.get('v');
+  const title = params.get("title") || "Ouça agora";
+  const v = params.get("v");
 
-  document.getElementById('titulo').textContent = title;
+  document.getElementById("titulo").textContent = title;
 
   if (v) {
-    const src = 'https://www.youtube.com/embed/' + encodeURIComponent(v);
-    document.getElementById('player').src = src;
+    const src = "https://www.youtube.com/embed/" + encodeURIComponent(v);
+    document.getElementById("player").src = src;
   }
 </script>

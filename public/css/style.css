@@ -68,7 +68,6 @@ nav a:hover {
   color: #0ea5e9;
 }
 
-/* ===== Hero Section ===== */
 .hero {
   display: flex;
   justify-content: center;
@@ -81,35 +80,32 @@ nav a:hover {
   min-height: 520px;
 }
 
-/* container geral dentro do hero */
 .hero-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto; /* espaço entre texto e imagens */
+  margin: 0 auto;
   width: 85%;
   max-width: 1100px;
 }
 
-/* imagens das crianças */
 .hero-img {
   display: flex;
-  justify-content: center; /* centraliza as crianças no eixo horizontal */
-  align-items: flex-end; /* alinha pela base */
-  gap: 0px; /* diminui mais o espaço entre elas */
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0px;
   position: relative;
-  top: 30px; /* ajusta a altura */
+  top: 30px;
 }
 
 .hero-img img {
-  width: 220px; /* mantém o tamanho */
+  width: 220px;
   height: auto;
-  margin: 0; /* garante que não tenha espaçamento extra */
+  margin: 0;
 }
 
-/* texto à direita */
 .hero-text h1 {
-  font-size: clamp(32px, 7vw, 95px) !important; /* tamanho responsivo */
+  font-size: clamp(32px, 7vw, 95px) !important;
   font-weight: 900;
   color: #355e57;
   text-align: left;
@@ -121,17 +117,17 @@ nav a:hover {
 
 .onda-top {
   position: absolute;
-  top: -80px; /* cola no topo do hero */
+  top: -80px;
   left: 0;
   width: 100%;
-  height: 220px; /* ajuste fino da altura da curva */
+  height: 220px;
   display: block;
-  transform: scaleX(-1); /* 👉 direita → esquerda */
+  transform: scaleX(-1);
   z-index: 1;
   pointer-events: none;
 }
 .onda-top path {
-  fill: var(--bege); /* 🔹 a onda em bege recorta o topo do azul */
+  fill: var(--bege);
 }
 
 .hero-text,
@@ -141,14 +137,13 @@ nav a:hover {
 }
 
 .hero-text h1 {
-  font-size: 3rem; /* tamanho grande */
-  font-weight: 900; /* bem grosso */
+  font-size: 3rem;
+  font-weight: 900;
   color: #264843;
-  /* verde escuro igual ao menu */
-  text-align: right; /* 🔹 alinha o texto à direita */
-  line-height: 0.9; /* aproxima as duas linhas */
-  letter-spacing: 1px; /* leve espaçamento horizontal */
-  margin-right: 40px; /* 🔹 desloca um pouco pra dentro da área azul */
+  text-align: right;
+  line-height: 0.9;
+  letter-spacing: 1px;
+  margin-right: 40px;
 }
 
 .hero-img img {
@@ -156,7 +151,6 @@ nav a:hover {
   height: auto;
 }
 
-/* ===== Livros Section ===== */
 .livros {
   text-align: center;
   padding: 3rem 1rem;
@@ -165,25 +159,24 @@ nav a:hover {
 .livros h2 {
   margin-bottom: 2rem;
   color: #374151;
-  font-size: 48px; /* aumenta o tamanho */
+  font-size: 48px;
   font-weight: 900;
-  text-align: left; /* alinha à esquerda */
-  margin-left: 120px; /* move um pouco pra dentro da página */
+  text-align: left;
+  margin-left: 120px;
 }
 
-/* SUBSTITUA a segunda regra de .livros-grid por esta */
 .livros-grid {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  column-gap: 40px;  /* espaçamento horizontal */
-  row-gap: 24px;     /* espaçamento vertical */
+  column-gap: 40px;
+  row-gap: 24px;
 }
 
 .livro {
-  flex: 0 1 420px; /* base flexível, mínimo de 300px */
-  max-width: 420px; /* impede que fiquem grandes demais */
+  flex: 0 1 420px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,7 +186,7 @@ nav a:hover {
 .capa {
   width: 100%;
   display: block;
-  aspect-ratio: 16/9;          /* mantém proporção */
+  aspect-ratio: 16/9;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -223,7 +216,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* ===== Footer ===== */
 footer {
   background-color: #789596;
   color: #fff;
@@ -245,20 +237,20 @@ footer {
 
 .social-links {
   display: flex;
-  justify-content: center; /* centraliza na horizontal */
+  justify-content: center;
   align-items: center;
-  gap: 8px; /* espaço entre os ícones */
+  gap: 8px;
 }
 
 .social-links a img {
-  width: 50px; /* 🔹 tamanho menor */
+  width: 50px;
   height: 50px;
   margin: 0 6px;
   transition: transform 0.3s ease;
 }
 
 .social-links a img:hover {
-  transform: scale(1.2); /* efeito sutil ao passar o mouse */
+  transform: scale(1.2);
 }
 
 .livros {
@@ -266,17 +258,16 @@ footer {
   margin-top: 40px;
 }
 
-
 .livro {
   display: flex;
   flex-direction: column;
-  align-items: center; /* 🔹 centraliza imagem, texto e botão */
+  align-items: center;
   text-align: center;
 }
 
 .capa {
-  width: 450px; /* 🔹 largura maior */
-  height: 250px; /* 🔹 altura proporcional */
+  width: 450px;
+  height: 250px;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -308,9 +299,6 @@ footer {
   background-color: #e8db80;
 }
 
-/* =====================  RESPONSIVO  ===================== */
-
-/* 1) ≤ 1200px: dá um respiro e reduz levemente os elementos */
 @media (max-width: 1200px) {
   .livros-grid {
     gap: 140px;
@@ -329,7 +317,6 @@ footer {
   }
 }
 
-/* 2) ≤ 992px: empilha conteúdo do HERO e centraliza melhor */
 @media (max-width: 992px) {
   header {
     padding: 16px 20px;
@@ -341,7 +328,7 @@ footer {
   }
 
   .hero-content {
-    flex-direction: column; /* empilha: texto em cima, imagens embaixo */
+    flex-direction: column;
     align-items: center;
     gap: 20px;
     width: 90%;
@@ -351,7 +338,7 @@ footer {
   .hero-text h1 {
     text-align: center;
     font-size: 60px;
-    top: 0; /* tira o deslocamento pra cima */
+    top: 0;
     margin-right: 0;
   }
 
@@ -364,7 +351,7 @@ footer {
 
   .livros h2 {
     font-size: 44px;
-    text-align: left; /* se quiser centralizado, troque para center */
+    text-align: left;
     margin-left: 40px;
   }
 
@@ -377,7 +364,6 @@ footer {
   }
 }
 
-/* 3) ≤ 768px: layout “tablet pequeno / celular grande” */
 @media (max-width: 768px) {
   .logo {
     font-size: 34px;
@@ -400,7 +386,7 @@ footer {
   }
 
   .livros-grid {
-    gap: 60px; /* aproxima um pouco */
+    gap: 60px;
   }
 
   .capa {
@@ -417,7 +403,6 @@ footer {
   }
 }
 
-/* 4) ≤ 480px: celular “comum” */
 @media (max-width: 480px) {
   header {
     justify-content: center;
@@ -466,7 +451,6 @@ footer {
   }
 }
 
-/* 5) ≤ 360px: telas bem pequenas */
 @media (max-width: 360px) {
   .hero-text h1 {
     font-size: 10px;
@@ -481,9 +465,23 @@ footer {
   }
 }
 
-.video-box { position: relative; width: 100%; max-width: 1000px; margin: 0 auto;
-  aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,.15); }
-.video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-box {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.video-box iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .player-title {
   font-size: 34px;
@@ -492,9 +490,8 @@ footer {
   margin: 20px 0;
   text-align: center;
   letter-spacing: 1px;
-  font-family: 'baloo 2', cursive;
+  font-family: "baloo 2", cursive;
 }
-
 
 .btn-ouvir {
   display: inline-block;
@@ -507,7 +504,7 @@ footer {
   cursor: pointer;
   box-shadow: 0 3px 0 #d1c05f;
   font-family: "Baloo 2", cursive;
-  text-decoration: none; /* tira o sublinhado */
+  text-decoration: none;
   transition: transform 0.1s ease;
 }
 
@@ -516,21 +513,22 @@ footer {
   transform: scale(1.05);
 }
 
-/* --- Layout base: footer sempre no rodapé --- */
-html, body { height: 100%; }
+html,
 body {
-  min-height: 100dvh;           /* cobre a viewport em mobile também */
+  height: 100%;
+}
+body {
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-/* o main cresce para ocupar o espaço; o footer desce */
 .player-wrapper {
-  flex: 1;                      /* ocupa o espaço entre header e footer */
+  flex: 1;
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 24px 16px 32px;      /* respiro (bottom dá espaço antes do footer) */
+  padding: 24px 16px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -545,7 +543,6 @@ body {
   margin: 8px 0 18px;
 }
 
-/* caixa do vídeo responsiva (16:9) */
 .video-box {
   position: relative;
   width: 100%;
@@ -553,14 +550,17 @@ body {
   aspect-ratio: 16 / 9;
   background: #0001;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
 .video-box iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border: 0;
 }
 
-/* Footer colado no fim da página */
-footer { margin-top: 0; }       /* se você tinha margin-top grande, remova */
+footer {
+  margin-top: 0;
+}
