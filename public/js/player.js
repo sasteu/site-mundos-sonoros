@@ -11,28 +11,31 @@ const player = document.getElementById("player");
 
 function chapterUrl(index) {
   const query = new URLSearchParams({
-    title: `Reforma da natureza — Capítulo ${index + 1}`,
     v: chapters[index],
   });
   return `player.html?${query}`;
 }
 
 if (index >= 0) {
-  const title = `Reforma da natureza — Capítulo ${index + 1}`;
+  const title = `A reforma da natureza — Capítulo ${index + 1}`;
   heading.textContent = title;
   document.title = `${title} | Mundos Sonoros`;
-  player.title = `Ouvir ${title}`;
-  player.src = `https://www.youtube.com/embed/${video}`;
+  player.title = `Player do YouTube: ${title}`;
+  player.src = `https://www.youtube.com/embed/${video}?autoplay=0&playsinline=1&hl=pt-BR`;
+  document.querySelector('.video-box').hidden = false;
+  document.getElementById('player-help').hidden = false;
+  listeningHistory.save(video);
   for (const [id, target] of [["anterior", index - 1], ["proximo", index + 1]]) {
     if (target >= 0 && target < chapters.length) {
       const link = document.getElementById(id);
       link.href = chapterUrl(target);
-      link.setAttribute("aria-label", `${id === "anterior" ? "Capítulo anterior" : "Próximo capítulo"}: ${target + 1}`);
+      link.textContent = `${id === "anterior" ? "Capítulo anterior" : "Próximo capítulo"}: ${target + 1}`;
       link.hidden = false;
     }
   }
 } else {
   heading.textContent = "Capítulo não encontrado";
+  document.title = 'Capítulo não encontrado | Mundos Sonoros';
   document.querySelector(".video-box").hidden = true;
   const message = document.getElementById("player-message");
   message.textContent = "Escolha um dos capítulos na página inicial para começar a ouvir.";
