@@ -23,7 +23,7 @@ body {
 main { flex: 1; min-width: 0; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--verde); text-underline-offset: 4px; }
-a:focus-visible, [tabindex="-1"]:focus-visible {
+:focus-visible {
   outline: 3px solid var(--verde);
   outline-offset: 5px;
 }
@@ -106,8 +106,13 @@ header {
   font-weight: 800;
   margin-bottom: 24px;
 }
-.livros-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
-.livro { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.book-intro { max-width: 65ch; margin-bottom: 24px; }
+.continue-listening { margin-bottom: 32px; padding: 20px; border: 2px solid var(--verde); border-radius: 10px; }
+.continue-listening p { margin: 8px 0 16px; }
+#capitulos-titulo { color: var(--verde); margin-bottom: 20px; }
+.livros-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding-left: 1.75rem; }
+.livro { display: list-item; min-width: 0; text-align: center; }
+.livro::marker { color: var(--verde); font-weight: 800; }
 .capa {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -138,7 +143,7 @@ header {
   text-decoration: none;
 }
 .btn-ouvir:hover { background: #ffed99; }
-.livro .btn-ouvir { width: 100%; margin-top: auto; }
+.livro .btn-ouvir { width: 100%; margin-top: 16px; }
 footer { background: #789596; padding: 20px; }
 .social-links { display: flex; justify-content: center; align-items: center; gap: 16px; }
 .social-links a { display: flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; }
@@ -157,6 +162,8 @@ footer { background: #789596; padding: 20px; }
 }
 .video-box { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #0001; box-shadow: 0 6px 15px #00000020; }
 .video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-box:focus-within { outline: 3px solid var(--verde); outline-offset: 5px; }
+#player-help { margin-bottom: 20px; }
 .chapter-nav { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
 .btn-secondary { background: transparent; box-shadow: none; border: 2px solid #355e57; color: var(--verde); }
 .btn-secondary:hover { background: #355e5710; }
@@ -170,7 +177,7 @@ footer { background: #789596; padding: 20px; }
   .livros h2 { text-align: left; }
   .livro .btn-ouvir { width: auto; }
   .hero-img { width: 360px; }
-  .chapter-nav { flex-direction: row; justify-content: space-between; }
+  .chapter-nav { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
   .chapter-nav .btn-ouvir { flex: 1; }
 }
 
