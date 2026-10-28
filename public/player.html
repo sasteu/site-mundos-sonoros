@@ -7,26 +7,33 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="header-right">
-      <a class="logo" href="index.html" title="Voltar">
-        <span class="logo-mundos">MUNDOS</span><br />
+      <a class="logo" href="index.html" aria-label="Mundos Sonoros — voltar ao início">
+        <span class="logo-mundos">MUNDOS</span>
         <span class="logo-sonoros">SONOROS</span>
       </a>
     </header>
 
-    <main class="player-wrapper">
+    <main class="player-wrapper" id="conteudo" tabindex="-1">
+      <a class="back-link" href="index.html#capitulos">← Todos os capítulos</a>
       <h1 id="titulo" class="player-title">Carregando…</h1>
       <div class="video-box">
         <iframe
           id="player"
-          src=""
-          title="YouTube player"
+          title="Reprodutor do audiolivro"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         >
         </iframe>
       </div>
+      <p id="player-message" role="status" hidden></p>
+      <nav class="chapter-nav" aria-label="Navegação entre capítulos">
+        <a class="btn-ouvir btn-secondary" id="anterior" hidden>← Capítulo anterior</a>
+        <a class="btn-ouvir" id="proximo" hidden>Próximo capítulo →</a>
+      </nav>
+      <noscript><p>Ative o JavaScript para carregar o player ou <a href="https://www.youtube.com/playlist?list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX">ouça os capítulos no YouTube</a>.</p></noscript>
     </main>
 
     <footer>
@@ -34,31 +41,20 @@
         <a
           href="https://www.youtube.com/playlist?list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img src="imagens/youtube - Editado.png" alt="YouTube" />
         </a>
         <a
           href="https://www.instagram.com/mundo_ssonoros?igsh=MjQzZDN4ODBvNG9t"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img src="imagens/instagram - Editado.png" alt="Instagram" />
         </a>
       </div>
     </footer>
 
-    <script>
-      const params = new URLSearchParams(location.search);
-      const title = params.get("title") || "Ouça agora";
-      const v = params.get("v");
-
-      document.getElementById("titulo").textContent = title;
-      if (v) {
-        const src = "https://www.youtube.com/embed/" + encodeURIComponent(v);
-        document.getElementById("player").src = src;
-      } else {
-        document.getElementById("player").src = "";
-        document.getElementById("titulo").textContent = "Vídeo não encontrado";
-      }
-    </script>
+    <script src="js/player.js" defer></script>
   </body>
 </html>
