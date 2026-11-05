@@ -15,7 +15,7 @@ document.querySelectorAll(".btn-ouvir").forEach((link) => {
 
     const params = new URL(link.href).searchParams;
     const chapter = params.get("chapter");
-    if (!/^(?:[1-9]|10|11)$/.test(chapter)) return;
+    if (!Object.hasOwn(chapterVideos, chapter)) return;
 
     event.preventDefault();
     lastTrigger = link;
@@ -24,7 +24,7 @@ document.querySelectorAll(".btn-ouvir").forEach((link) => {
     videoError.hidden = true;
     videoStatus.hidden = false;
     modalPlayer.poster = link.closest(".livro").querySelector(".capa").src;
-    modalPlayer.src = `videos/capitulo-${chapter}.mp4`;
+    modalPlayer.src = chapterVideos[chapter];
     videoModal.showModal();
     savedScrollY = window.scrollY;
     document.body.style.top = `-${savedScrollY}px`;

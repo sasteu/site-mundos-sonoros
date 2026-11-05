@@ -39,6 +39,7 @@
       </div>
     </footer>
 
+    <script src="js/chapters.js?v=chapters-14"></script>
     <script>
       const params = new URLSearchParams(location.search);
       const title = params.get("title") || "Ouça agora";
@@ -46,8 +47,9 @@
       const player = document.getElementById("player");
       const error = document.getElementById("video-error");
       document.getElementById("titulo").textContent = title;
-      if (/^(?:[1-9]|10|11)$/.test(chapter)) {
-        player.src = `videos/capitulo-${chapter}.mp4`;
+      if (Object.hasOwn(chapterVideos, chapter)) {
+        player.src = chapterVideos[chapter];
+        player.poster = Number(chapter) >= 12 ? `imagens/${chapter}.png` : "";
         player.addEventListener("error", () => {
           error.textContent = "Não foi possível reproduzir este capítulo. Tente novamente.";
           error.hidden = false;
