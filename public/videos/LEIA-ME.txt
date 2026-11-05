@@ -1,0 +1,18 @@
+Coloque os vídeos dos capítulos nesta pasta com os seguintes nomes:
+
+capitulo-1.mp4
+capitulo-2.mp4
+capitulo-3.mp4
+capitulo-4.mp4
+capitulo-5.mp4
+capitulo-6.mp4
+capitulo-7.mp4
+capitulo-8.mp4
+capitulo-9.mp4
+capitulo-10.mp4
+capitulo-11.mp4
+
+Use MP4 com vídeo H.264 e áudio AAC para compatibilidade com os navegadores.
+Os botões OUVIR abrem os arquivos no popup do próprio site, sem YouTube.
+O clique em OUVIR carrega e inicia o vídeo no popup.
+Ao publicar o site, envie também esta pasta com os arquivos de vídeo.
