@@ -6,3 +6,12 @@ const chapterVideos = {
   "13": "videos/CAPITULO 13 - Os Estudos.mp4",
   "14": "videos/CAPITULO 14 - A Pulga Gigantesca.mp4"
 };
+
+function chapterTitle(chapter) {
+  return `A reforma da natureza — Capítulo ${chapter}`;
+}
+
+function adjacentChapter(chapter, offset) {
+  const destination = String(Number(chapter) + offset);
+  return Object.hasOwn(chapterVideos, destination) ? destination : null;
+}

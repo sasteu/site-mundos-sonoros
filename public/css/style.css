@@ -681,3 +681,101 @@ header, .hero, .livros, footer {
     transition: none !important;
   }
 }
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  z-index: 10;
+  padding: 12px 20px;
+  background: #fff8e7;
+  color: #264843;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid #355e57;
+  outline-offset: 4px;
+}
+
+.video-box:focus-within {
+  outline: 3px solid #355e57;
+  outline-offset: 4px;
+}
+
+.hero-img img:last-child {
+  /* The second illustration has less transparent space above the head. */
+  width: calc(0.97 * min(50%, 220px));
+}
+
+.hero-img img {
+  min-width: 0;
+}
+
+.livros-grid {
+  list-style: none;
+}
+
+.capa {
+  object-fit: contain;
+  object-position: center;
+}
+
+.book-intro,
+.continue-listening {
+  margin-bottom: 24px;
+}
+
+.continue-listening {
+  padding: 16px;
+  border: 2px solid #355e57;
+  border-radius: 10px;
+}
+
+.continue-listening p {
+  margin: 8px 0 12px;
+}
+
+#capitulos-titulo {
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  color: #264843;
+}
+
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.chapter-nav .btn-ouvir {
+  margin-top: 0;
+  text-align: center;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 992px) {
+  .hero-img img:last-child {
+    width: 48.5%;
+  }
+}

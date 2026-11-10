@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mundos Sonoros – Player</title>
-    <link rel="stylesheet" href="css/style.css?v=mobile-1" />
+    <link rel="stylesheet" href="css/style.css?v=acessibilidade-1" />
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="header-right">
       <a class="logo" href="index.html" title="Voltar">
         <span class="logo-mundos">MUNDOS</span><br />
@@ -14,12 +15,17 @@
       </a>
     </header>
 
-    <main class="player-wrapper">
+    <main class="player-wrapper" id="conteudo" tabindex="-1">
+      <a class="back-link" href="index.html#capitulos">Todos os capítulos</a>
       <h1 id="titulo" class="player-title">Carregando…</h1>
-      <div class="video-box">
+      <div class="video-box" hidden>
         <video id="player" controls playsinline preload="auto" aria-label="Player do audiolivro"></video>
       </div>
       <p id="video-error" class="video-error" role="status" hidden></p>
+      <nav class="chapter-nav" aria-label="Navegação entre capítulos">
+        <a id="anterior" class="btn-ouvir" hidden></a>
+        <a id="proximo" class="btn-ouvir" hidden></a>
+      </nav>
     </main>
 
     <footer>
@@ -40,14 +46,30 @@
     </footer>
 
     <script src="js/chapters.js?v=chapters-14"></script>
+    <script src="js/history.js"></script>
     <script>
       const params = new URLSearchParams(location.search);
-      const title = params.get("title") || "Ouça agora";
       const chapter = params.get("chapter");
+      const title = params.get("title") || chapterTitle(chapter);
       const player = document.getElementById("player");
       const error = document.getElementById("video-error");
-      document.getElementById("titulo").textContent = title;
       if (Object.hasOwn(chapterVideos, chapter)) {
+        document.getElementById("titulo").textContent = title;
+        document.title = `${title} | Mundos Sonoros`;
+        player.setAttribute("aria-label", `Player: ${title}`);
+        player.closest(".video-box").hidden = false;
+        saveLastChapter(chapter);
+        for (const [id, offset, label] of [
+          ["anterior", -1, "Capítulo anterior"],
+          ["proximo", 1, "Próximo capítulo"],
+        ]) {
+          const destination = adjacentChapter(chapter, offset);
+          if (!destination) continue;
+          const link = document.getElementById(id);
+          link.href = `player.html?chapter=${destination}`;
+          link.textContent = `${label}: ${destination}`;
+          link.hidden = false;
+        }
         player.src = chapterVideos[chapter];
         player.poster = Number(chapter) >= 12 ? `imagens/${chapter}.png` : "";
         player.addEventListener("error", () => {
