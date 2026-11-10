@@ -38,7 +38,12 @@ test('catalogue has eleven ordered chapters and no repeated cover descriptions',
   assert.equal(new Set(videos).size, 11);
   assert.match(html, /<ol class="livros-grid"/);
   assert.equal((html.match(/<li class="livro">/g) || []).length, 11);
-  for (let number = 1; number <= 11; number++) assert.match(html, new RegExp(`Ouvir capítulo ${number}\\s*<`));
+  const chapterLinks = [...html.matchAll(/<a\s+class="btn-ouvir"\s+aria-label="([^"]+)"\s+href="player\.html\?v=[^"]+"\s*>\s*([^<]+?)\s*<\/a>/g)];
+  assert.equal(chapterLinks.length, 11);
+  chapterLinks.forEach(([, label, text], index) => {
+    assert.equal(label, `Ouvir capítulo ${index + 1}`);
+    assert.equal(text, 'Ouvir');
+  });
   assert.doesNotMatch(html, /alt="Capa/);
 });
 
