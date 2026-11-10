@@ -17,21 +17,23 @@
 
     <main class="player-wrapper" id="conteudo" tabindex="-1">
       <a class="back-link" href="index.html#capitulos">← Todos os capítulos</a>
-      <h1 id="titulo" class="player-title">Carregando…</h1>
-      <div class="video-box">
+      <h1 id="titulo" class="player-title">Ouvir um capítulo</h1>
+      <p id="player-help" hidden>Use Tab para chegar aos controles do YouTube e Enter ou Espaço para reproduzir ou pausar no botão correspondente. O áudio não começa automaticamente.</p>
+      <div class="video-box" hidden>
         <iframe
           id="player"
           title="Reprodutor do audiolivro"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         >
         </iframe>
       </div>
-      <p id="player-message" role="status" hidden></p>
+      <p id="player-message" hidden></p>
       <nav class="chapter-nav" aria-label="Navegação entre capítulos">
         <a class="btn-ouvir btn-secondary" id="anterior" hidden>← Capítulo anterior</a>
         <a class="btn-ouvir" id="proximo" hidden>Próximo capítulo →</a>
+        <a class="btn-ouvir btn-secondary" href="index.html#capitulos">Voltar à lista de capítulos</a>
       </nav>
       <noscript><p>Ative o JavaScript para carregar o player ou <a href="https://www.youtube.com/playlist?list=PLtGBjUZ9ZYJHY2Halu0ReFAwtFCNCVEpX">ouça os capítulos no YouTube</a>.</p></noscript>
     </main>
@@ -55,6 +57,7 @@
       </div>
     </footer>
 
+    <script src="js/history.js" defer></script>
     <script src="js/player.js" defer></script>
   </body>
 </html>
