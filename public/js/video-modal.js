@@ -3,43 +3,93 @@ const modalPlayer = document.getElementById("modal-player");
 const videoTitle = document.getElementById("video-title");
 const videoError = document.getElementById("video-error");
 const videoStatus = document.getElementById("video-status");
+const continueSection = document.getElementById("continuar");
+const continueLink = document.getElementById("continuar-link");
+const catalogue = new Map([...document.querySelectorAll(".livro .btn-ouvir")].map((link) => [
+  new URL(link.href).searchParams.get("chapter"),
+  link,
+]));
+const chapterNavigation = [
+  [document.getElementById("modal-anterior"), -1, "Capítulo anterior"],
+  [document.getElementById("modal-proximo"), 1, "Próximo capítulo"],
+];
 let lastTrigger;
 let savedScrollY = 0;
+let currentChapter;
 
-document.querySelectorAll(".btn-ouvir").forEach((link) => {
+function refreshHistory() {
+  const chapter = readLastChapter();
+  const link = catalogue.get(chapter);
+  continueSection.hidden = !link;
+  if (!link) return;
+  continueLink.href = link.href;
+  continueLink.textContent = `Continuar ouvindo: capítulo ${chapter}`;
+}
+
+function openChapter(chapter, trigger) {
+  const link = catalogue.get(chapter);
+  if (!link || !Object.hasOwn(chapterVideos, chapter)) return;
+
+  const wasOpen = videoModal.open;
+  currentChapter = chapter;
+  videoTitle.textContent = chapterTitle(chapter);
+  modalPlayer.setAttribute("aria-label", `Player: ${videoTitle.textContent}`);
+  videoError.hidden = true;
+  videoStatus.hidden = false;
+  modalPlayer.poster = link.closest(".livro").querySelector(".capa").src;
+  modalPlayer.src = chapterVideos[chapter];
+
+  if (wasOpen) {
+    videoTitle.focus();
+  } else {
+    lastTrigger = trigger;
+    savedScrollY = window.scrollY;
+    videoModal.showModal();
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.classList.add("video-modal-open");
+  }
+
+  for (const [button, offset, label] of chapterNavigation) {
+    const destination = adjacentChapter(chapter, offset);
+    button.hidden = !catalogue.has(destination);
+    if (!button.hidden) button.textContent = `${label}: ${destination}`;
+  }
+
+  saveLastChapter(chapter);
+  modalPlayer.load();
+  // A ação de ouvir também inicia a reprodução, sem um segundo clique.
+  modalPlayer.play().catch((error) => {
+    if (error.name === "NotAllowedError" && videoModal.open && currentChapter === chapter) {
+      videoStatus.hidden = true;
+      videoError.textContent = "O navegador bloqueou o início da reprodução. Acione o botão de reprodução para ouvir.";
+      videoError.hidden = false;
+    }
+  });
+}
+
+for (const link of [...catalogue.values(), continueLink]) {
   link.setAttribute("aria-haspopup", "dialog");
   link.setAttribute("aria-controls", "video-modal");
 
   link.addEventListener("click", (event) => {
-    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
 
     const params = new URL(link.href).searchParams;
     const chapter = params.get("chapter");
     if (!Object.hasOwn(chapterVideos, chapter)) return;
 
     event.preventDefault();
-    lastTrigger = link;
-    videoTitle.textContent = params.get("title") || "Ouça agora";
-    modalPlayer.title = videoTitle.textContent;
-    videoError.hidden = true;
-    videoStatus.hidden = false;
-    modalPlayer.poster = link.closest(".livro").querySelector(".capa").src;
-    modalPlayer.src = chapterVideos[chapter];
-    videoModal.showModal();
-    savedScrollY = window.scrollY;
-    document.body.style.top = `-${savedScrollY}px`;
-    document.body.classList.add("video-modal-open");
-    modalPlayer.load();
-    // O clique em OUVIR também inicia a reprodução, sem um segundo clique.
-    modalPlayer.play().catch((error) => {
-      if (error.name === "NotAllowedError" && videoModal.open) {
-        videoStatus.hidden = true;
-        videoError.textContent = "O navegador bloqueou a reprodução automática. Toque no play para ouvir.";
-        videoError.hidden = false;
-      }
-    });
+    openChapter(chapter, link);
   });
-});
+}
+
+for (const [button, offset] of chapterNavigation) {
+  button.addEventListener("click", () => openChapter(adjacentChapter(currentChapter, offset)));
+}
+
+window.addEventListener("pageshow", refreshHistory);
+window.addEventListener("storage", refreshHistory);
+refreshHistory();
 
 document.getElementById("close-video").addEventListener("click", () => {
   videoModal.close();
@@ -64,15 +114,15 @@ videoModal.addEventListener("close", () => {
   videoStatus.hidden = true;
   document.body.classList.remove("video-modal-open");
   document.body.style.top = "";
-  window.scrollTo(0, savedScrollY);
   lastTrigger?.focus({ preventScroll: true });
+  refreshHistory();
+  window.scrollTo(0, savedScrollY);
 });
 
 modalPlayer.addEventListener("error", () => {
   if (!modalPlayer.hasAttribute("src")) return;
   videoStatus.hidden = true;
-  const chapter = new URL(lastTrigger.href).searchParams.get("chapter");
-  videoError.textContent = `Não foi possível reproduzir o capítulo ${chapter}. Tente abrir o vídeo novamente.`;
+  videoError.textContent = `Não foi possível reproduzir o capítulo ${currentChapter}. Tente abrir o vídeo novamente.`;
   videoError.hidden = false;
 });
 

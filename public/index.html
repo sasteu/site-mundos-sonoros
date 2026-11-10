@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mundos Sonoros</title>
-    <link rel="stylesheet" href="css/style.css?v=mobile-1" />
+    <link rel="stylesheet" href="css/style.css?v=acessibilidade-1" />
     <link rel="icon" type="image/png" href="imagens/favicon.png" />
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header>
       <a class="logo" href="index.html" aria-label="Mundos Sonoros — início">
         <span class="logo-mundos">MUNDOS</span><br />
@@ -15,7 +16,8 @@
       </a>
     </header>
 
-    <section class="hero">
+    <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-titulo">
       <svg
         class="onda-top"
         viewBox="0 0 1440 120"
@@ -29,287 +31,309 @@
 
       <div class="hero-content">
         <div class="hero-text">
-          <h1>AUDIOLIVROS<br />INCLUSIVOS</h1>
+          <h1 id="hero-titulo">AUDIOLIVROS<br />INCLUSIVOS</h1>
         </div>
 
         <div class="hero-img">
-          <img src="imagens/criança1.png" alt="Criança ouvindo com fones" />
-          <img src="imagens/criança2.png" alt="Criança ouvindo com fones" />
+          <img src="imagens/criança1.png" width="1024" height="1536" alt="" />
+          <img src="imagens/criança2.png" width="1024" height="1536" alt="" />
         </div>
       </div>
     </section>
 
-    <section class="livros">
-      <h2>OUÇA AGORA</h2>
-      <div class="livros-grid">
-        <div class="livro">
+    <section class="livros" id="capitulos" aria-labelledby="livros-titulo" tabindex="-1">
+      <h2 id="livros-titulo">A reforma da natureza</h2>
+      <p class="book-intro">Ouça o livro de Monteiro Lobato. Escolha um capítulo para abrir o vídeo.</p>
+      <section class="continue-listening" id="continuar" aria-labelledby="continuar-titulo" hidden>
+        <h3 id="continuar-titulo">Continuar ouvindo</h3>
+        <p>Volte ao último capítulo acessado neste navegador. A reprodução começa do início do capítulo.</p>
+        <a class="btn-ouvir" id="continuar-link"></a>
+      </section>
+      <h3 id="capitulos-titulo">Capítulos</h3>
+      <ol class="livros-grid" role="list" aria-labelledby="capitulos-titulo">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 1.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 1"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 1</p>
+          <p>Capítulo 1</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 1"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%201&chapter=1"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 2.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 2"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 2</p>
+          <p>Capítulo 2</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 2"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%202&chapter=2"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 3.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 3"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 3</p>
+          <p>Capítulo 3</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 3"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%203&chapter=3"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 4.jpg"
-            alt="Capa do audio livro Reforma da natureza capitulo 4"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 4</p>
+          <p>Capítulo 4</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 4"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%204&chapter=4"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 5.jpg"
-            alt="Capa do audio livro Reforma da natureza capitulo 5"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 5</p>
+          <p>Capítulo 5</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 5"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%205&chapter=5"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 6.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 6"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 6</p>
+          <p>Capítulo 6</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 6"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%206&chapter=6"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 7.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 7"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 7</p>
+          <p>Capítulo 7</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 7"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%207&chapter=7"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 8.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 8"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 8</p>
+          <p>Capítulo 8</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 8"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%208&chapter=8"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 9.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 9"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 9</p>
+          <p>Capítulo 9</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 9"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%209&chapter=9"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 10.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 10"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 10</p>
+          <p>Capítulo 10</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 10"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%2010&chapter=10"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/Reforma da natureza - capitulo 11.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 11"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 11</p>
+          <p>Capítulo 11</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 11"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%2011&chapter=11"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/12.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 12"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 12</p>
+          <p>Capítulo 12</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 12"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%2012&chapter=12"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/13.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 13"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 13</p>
+          <p>Capítulo 13</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 13"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%2013&chapter=13"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
+        </li>
 
-        <div class="livro">
+        <li class="livro">
           <img
             src="imagens/14.png"
-            alt="Capa do audio livro Reforma da natureza capitulo 14"
+            alt=""
             class="capa"
             loading="lazy"
             decoding="async"
             width="480"
             height="270"
           />
-          <p>Reforma da natureza capitulo 14</p>
+          <p>Capítulo 14</p>
           <a
             class="btn-ouvir"
+            aria-label="Ouvir capítulo 14"
             href="player.html?title=Reforma%20da%20natureza%20-%20Capitulo%2014&chapter=14"
           >
-            OUVIR
+            Ouvir
           </a>
-        </div>
-      </div>
+        </li>
+      </ol>
     </section>
+    </main>
 
     <footer>
       <div class="social-links">
@@ -331,7 +355,7 @@
     </footer>
     <dialog id="video-modal" class="video-modal" aria-labelledby="video-title">
       <div class="video-modal-header">
-        <h2 id="video-title">Ouça agora</h2>
+        <h2 id="video-title" tabindex="-1">Ouça agora</h2>
         <button id="close-video" type="button" aria-label="Fechar vídeo" autofocus>
           Fechar &times;
         </button>
@@ -342,8 +366,13 @@
       </div>
       <p id="video-status" class="video-status" role="status" hidden>Carregando vídeo…</p>
       <p id="video-error" class="video-error" role="status" hidden></p>
+      <nav class="chapter-nav" aria-label="Navegação entre capítulos">
+        <button id="modal-anterior" class="btn-ouvir" type="button" hidden></button>
+        <button id="modal-proximo" class="btn-ouvir" type="button" hidden></button>
+      </nav>
     </dialog>
     <script src="js/chapters.js?v=chapters-14" defer></script>
-    <script src="js/video-modal.js?v=chapters-14" defer></script>
+    <script src="js/history.js" defer></script>
+    <script src="js/video-modal.js?v=acessibilidade-1" defer></script>
   </body>
 </html>
