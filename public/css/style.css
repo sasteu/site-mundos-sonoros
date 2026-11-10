@@ -93,6 +93,10 @@ header {
   justify-content: center;
 }
 .hero-img img { width: 50%; min-width: 0; }
+.hero-img img:last-child {
+  /* The second illustration has less transparent space above the head. */
+  width: 48.5%;
+}
 .livros {
   width: 100%;
   max-width: 1160px;
@@ -111,7 +115,8 @@ header {
 .capa {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   border-radius: 10px;
   box-shadow: 0 6px 15px #00000020;
 }
